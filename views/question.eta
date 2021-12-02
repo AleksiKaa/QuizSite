@@ -1,0 +1,30 @@
+<% layout("./layouts/layout.eta") %>
+
+<h1><%= it.question.title %></h1>
+<p><%= it.question.question_text %></p>
+
+<% if (it.errors) { %>
+<ul>
+    <% Object.keys(it.errors).forEach((attribute) => { %>
+        <% Object.values(it.errors[attribute]).forEach((err) => { %>
+            <li><%= err %></li>
+        <% }); %>
+    <% }); %>
+</ul>
+<% } %>
+
+<form action="/questions/<%= it.question.id %>/options" method="POST">
+    <input type="text" name="option_text"/>
+    <input type="checkbox" name="is_correct"/>
+    <label for="is_correct">Is correct?</label>
+    <input type="submit" value="Submit"/>
+</form>
+
+<% if (it.answers && it.answers.length > 0) { %>
+<% it.answers.forEach((a) => { %>
+<ul>
+    <li>
+        <%= a.option_text %> <%= a.is_correct %>
+    </li>
+</ul>   
+<% } ) } %> 

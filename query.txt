@@ -1,0 +1,2 @@
+SELECT * from question_answer_options
+

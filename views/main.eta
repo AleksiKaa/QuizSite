@@ -1,0 +1,26 @@
+<% layout("./layouts/layout.eta") %>
+
+<% if (it.errors) { %>
+<ul>
+    <% Object.keys(it.errors).forEach((attribute) => { %>
+        <% Object.values(it.errors[attribute]).forEach((err) => { %>
+            <li><%= err %></li>
+        <% }); %>
+    <% }); %>
+</ul>
+<% } %>
+
+<form action="/questions" method="POST">
+    <input type="text" name="title" value="<%= it.title %>"/>
+    <input type="text" name="question_text" value="<%= it.text %>"/>
+    <input type="submit" value="submit"/>
+</form>
+
+<% if (it.questions && it.questions.length > 0) { %>
+<% it.questions.forEach((q) => { %>
+<ul>
+    <li>
+        <a href="/questions/<%= q.id %>"> <%= q.title %>
+    </li>
+</ul>   
+<% } ) } %> 

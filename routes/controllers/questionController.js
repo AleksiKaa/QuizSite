@@ -45,7 +45,6 @@ const renderQuestionPage = async ({ render, params }) => {
     render("question.eta", {question: await questionService.getQuestion(id), answers: await questionService.getAnswerOptions(id)})
 }
 
-
 //add functionality for question answers
 const deleteAnswerOption = async ({ response, params }) => {
 

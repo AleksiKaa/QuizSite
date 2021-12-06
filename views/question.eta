@@ -3,6 +3,12 @@
 <h1><%= it.question.title %></h1>
 <p><%= it.question.question_text %></p>
 
+<% if (!it.answers || it.answers.length === 0) { %>
+<form action="/questions/<%= it.question.id %>/delete" method="POST">
+    <input type="submit" value="Delete question"/>
+</form>
+<% } %>
+
 <% if (it.errors) { %>
 <ul>
     <% Object.keys(it.errors).forEach((attribute) => { %>

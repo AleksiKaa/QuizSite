@@ -10,5 +10,6 @@ router.post("/questions", questionsController.submitQuestion)
 router.get("/questions/:id", questionController.renderQuestionPage)
 router.post("/questions/:id/options", questionController.submitAnswerOption)
 router.post("/questions/:id/options/:optionId/delete", questionController.deleteAnswerOption)
+router.post("/questions/:id/delete", questionsController.removeQuestion)
 
 export { router };

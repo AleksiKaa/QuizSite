@@ -20,4 +20,11 @@ const addQuestion = async (title, text, userId) => {
     )
 }
 
-export { getQuestions, addQuestion }
+const deleteQuestion = async (id) => {
+    await executeQuery(
+        "DELETE FROM questions WHERE id = $1",
+        id
+    )
+}
+
+export { getQuestions, addQuestion, deleteQuestion }

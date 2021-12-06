@@ -36,4 +36,11 @@ const submitQuestion = async ({ request, render, response }) => {
     }
 }
 
-export { submitQuestion }
+const removeQuestion = async ({ response, params }) => {
+    
+    await questionsService.deleteQuestion(params.id)
+
+    response.redirect("/questions")
+}
+
+export { submitQuestion, removeQuestion }

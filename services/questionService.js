@@ -27,4 +27,12 @@ const getAnswerOptions = async (id) => {
     return res.rows
 }
 
-export { getQuestion, addAnswerOption, getAnswerOptions }
+const deleteOption = async (questionId, optionId) => {
+    await executeQuery(
+        "DELETE FROM question_answer_options WHERE question_id = $1 AND id = $2",
+        questionId,
+        optionId
+    )
+}
+
+export { getQuestion, addAnswerOption, getAnswerOptions, deleteOption }

@@ -45,4 +45,16 @@ const renderQuestionPage = async ({ render, params }) => {
     render("question.eta", {question: await questionService.getQuestion(id), answers: await questionService.getAnswerOptions(id)})
 }
 
-export { renderQuestionPage, submitAnswerOption }
+
+//add functionality for question answers
+const deleteAnswerOption = async ({ response, params }) => {
+
+    const questionId = params.id
+    const optionId = params.optionId
+
+    await questionService.deleteOption(questionId, optionId)
+
+    response.redirect(`/questions/${questionId}`)
+}
+
+export { renderQuestionPage, submitAnswerOption, deleteAnswerOption }

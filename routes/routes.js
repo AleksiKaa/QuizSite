@@ -9,5 +9,6 @@ router.get("/questions", mainController.showMain);
 router.post("/questions", questionsController.submitQuestion)
 router.get("/questions/:id", questionController.renderQuestionPage)
 router.post("/questions/:id/options", questionController.submitAnswerOption)
+router.post("/questions/:id/options/:optionId/delete", questionController.deleteAnswerOption)
 
 export { router };

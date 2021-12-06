@@ -1,2 +1,1 @@
-SELECT * from question_answer_options
-
+SELECT * from users

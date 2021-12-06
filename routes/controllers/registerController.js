@@ -1,4 +1,4 @@
-import * as registerService from "../services/registerService.js"
+import * as registerService from "../../services/registerService.js"
 import * as bcrypt from "https://deno.land/x/bcrypt@v0.2.4/mod.ts";
 import {
     isEmail,
@@ -13,7 +13,7 @@ const validationRules = {
 }
 
 const showPage = async ({ render }) => {
-    render("register.eta")
+    render("register.eta", {email: "", errors: null})
 }
 
 const registerAccount = async ({ request, response, render }) => {
@@ -23,7 +23,7 @@ const registerAccount = async ({ request, response, render }) => {
     const data = {
         email: "",
         password: "", 
-        errors: null
+        errors: {}
     }
 
     data.email = params.get("email")
@@ -35,8 +35,13 @@ const registerAccount = async ({ request, response, render }) => {
         data.errors = errors
         render("register.eta", data)
     } else {
-        const hash = await bcrypt.hash(password)
-        await registerService.addQuestion(data.email, hash)
+
+        if (registerService.emailExists(data.email)) {
+            data.errors["email"] = {text: "This email is already registered"}
+            return render("register.eta", data)
+        }
+        const hash = await bcrypt.hash(data.password)
+        await registerService.register(data.email, hash)
         response.redirect("/auth/login")
     }
 }

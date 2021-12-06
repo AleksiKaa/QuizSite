@@ -1,5 +1,5 @@
 import * as registerService from "../../services/registerService.js"
-import * as bcrypt from "https://deno.land/x/bcrypt@v0.2.4/mod.ts";
+import * as bcrypt from "https://deno.land/x/bcrypt@v0.2.4/mod.ts"
 import {
     isEmail,
     minLength,
@@ -36,7 +36,7 @@ const registerAccount = async ({ request, response, render }) => {
         render("register.eta", data)
     } else {
 
-        if (registerService.emailExists(data.email)) {
+        if (registerService.emailExists(data.email) === true) {
             data.errors["email"] = {text: "This email is already registered"}
             return render("register.eta", data)
         }

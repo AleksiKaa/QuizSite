@@ -7,7 +7,8 @@ import * as loginController from "./controllers/loginController.js"
 
 const router = new Router();
 
-router.get("/questions", mainController.showMain);
+router.get("/", mainController.showMain)
+router.get("/questions", questionsController.showQuestions);
 router.get("/questions/:id", questionController.renderQuestionPage)
 router.get("/auth/register", registerController.showPage)
 router.get("/auth/login", loginController.showPage)

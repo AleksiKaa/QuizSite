@@ -13,7 +13,7 @@ const validationRules = {
 }
 
 const showPage = async ({ render }) => {
-    render("register.eta", {email: "", errors: null})
+    render("register.eta", { email: "", errors: null })
 }
 
 const registerAccount = async ({ request, response, render }) => {
@@ -22,7 +22,7 @@ const registerAccount = async ({ request, response, render }) => {
 
     const data = {
         email: "",
-        password: "", 
+        password: "",
         errors: {}
     }
 
@@ -37,7 +37,7 @@ const registerAccount = async ({ request, response, render }) => {
     } else {
 
         if (registerService.emailExists(data.email) === true) {
-            data.errors["email"] = {text: "This email is already registered"}
+            data.errors["email"] = { text: "This email is already registered" }
             return render("register.eta", data)
         }
         const hash = await bcrypt.hash(data.password)

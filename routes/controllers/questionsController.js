@@ -16,7 +16,7 @@ const submitQuestion = async ({ request, render, response, state }) => {
 
     const data = {
         title: "",
-        text: "", 
+        text: "",
         errors: null
     }
 
@@ -37,10 +37,25 @@ const submitQuestion = async ({ request, render, response, state }) => {
 }
 
 const removeQuestion = async ({ response, params }) => {
-    
+
     await questionsService.deleteQuestion(params.id)
 
     response.redirect("/questions")
 }
 
-export { submitQuestion, removeQuestion }
+const showQuestions = async ({ render, state, response }) => {
+
+    const authenticated = await state.session.get("authenticated")
+
+    if (!authenticated) return response.redirect("/auth/login")
+
+    const id = (await state.session.get("user")).id
+
+    render("questions.eta", {
+        title: "",
+        text: "",
+        questions: await questionsService.getQuestions(id)
+    })
+}
+
+export { submitQuestion, removeQuestion, showQuestions }

@@ -25,7 +25,7 @@ const submitAnswerOption = async ({ request, render, response, params, state }) 
 
     const data = {
         question: await questionService.getQuestion(id),
-        answers: await questionService.getAnswerOptions(id) ,
+        answers: await questionService.getAnswerOptions(id),
         text: formParams.get("option_text"),
         errors: null
     }
@@ -42,14 +42,14 @@ const submitAnswerOption = async ({ request, render, response, params, state }) 
 }
 
 const renderQuestionPage = async ({ render, params, response, state }) => {
-    
+
     const id = params.id
     const userIdquestions = (await questionService.getQuestion(id)).user_id
     const userId = (await state.session.get("user")).id
 
     if (userId != userIdquestions) return response.status = 401
 
-    render("question.eta", {question: await questionService.getQuestion(id), answers: await questionService.getAnswerOptions(id)})
+    render("question.eta", { question: await questionService.getQuestion(id), answers: await questionService.getAnswerOptions(id) })
 }
 
 //add functionality for question answers

@@ -1,4 +1,4 @@
-import * as questionsService from "../../services/questionsService.js";
+import * as questionsService from "../../services/questionsService.js"
 import {
     minLength,
     required,
@@ -45,9 +45,9 @@ const removeQuestion = async ({ response, params }) => {
 
 const showQuestions = async ({ render, state, response }) => {
 
-    const authenticated = await state.session.get("authenticated")
+    const auth = await state.session.get("authenticated")
 
-    if (!authenticated) return response.redirect("/auth/login")
+    if (!auth) return response.redirect("/auth/login")
 
     const id = (await state.session.get("user")).id
 

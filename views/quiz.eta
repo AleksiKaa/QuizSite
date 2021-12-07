@@ -1,0 +1,15 @@
+<title><%= it.question.title %></title>
+
+<h1><%= it.question.question_text %></h1>
+
+<% if (it.options && it.options.length > 0) { %>
+<% it.options.forEach((a) => { %>
+<ul>
+    <li>
+        <%= a.option_text %>
+        <form action="/quiz/<%= it.question.id %>/options/<%= a.id %>" method="POST">
+            <input type="submit" value="Choose!"/>
+        </form>
+    </li>
+</ul>   
+<% } ) } %> 

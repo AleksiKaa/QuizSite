@@ -1,1 +1,1 @@
-SELECT * from questions
+SELECT * FROM question_answer_options WHERE question_id = 1 AND is_correct = true

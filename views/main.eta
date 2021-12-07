@@ -2,4 +2,4 @@
 
 <h1>Hello world!</h1>
 
-<p>remember to add access control for /quiz and /statistics</p>
+<p>add access control for paths that start with /questions, /quiz, /statistics</p>

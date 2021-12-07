@@ -1,0 +1,9 @@
+<h1>Incorrect!</h1>
+
+<% if (it.answers.length > 0) { %>
+<p>The correct option was <i><%= it.answers[0].option_text %></i></p>
+<% } else { %>
+<p>This question does not have correct answers at the moment</p>
+<% } %>
+
+<p><a href="/quiz" >Next question</a></p>

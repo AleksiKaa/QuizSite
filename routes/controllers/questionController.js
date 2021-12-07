@@ -9,11 +9,15 @@ const validationRules = {
     text: [required, minLength(1)]
 }
 
-const submitAnswerOption = async ({ request, render, response, params }) => {
+const submitAnswerOption = async ({ request, render, response, params, state }) => {
     const body = request.body()
     const formParams = await body.value
 
     const id = params.id
+    const userIdquestions = (await questionService.getQuestion(id)).user_id
+    const userId = (await state.session.get("user")).id
+
+    if (userId != userIdquestions) return response.status = 401
 
     let checkbox = formParams.get("is_correct")
 
@@ -37,10 +41,13 @@ const submitAnswerOption = async ({ request, render, response, params }) => {
     }
 }
 
-//user credentials
-const renderQuestionPage = async ({ render, params }) => {
+const renderQuestionPage = async ({ render, params, response, state }) => {
     
     const id = params.id
+    const userIdquestions = (await questionService.getQuestion(id)).user_id
+    const userId = (await state.session.get("user")).id
+
+    if (userId != userIdquestions) return response.status = 401
 
     render("question.eta", {question: await questionService.getQuestion(id), answers: await questionService.getAnswerOptions(id)})
 }

@@ -1,11 +1,9 @@
 import { executeQuery } from "../database/database.js";
 
-//add usershit
 const getQuestions = async (userId) => {
     const res = await executeQuery(
         "SELECT * FROM questions WHERE user_id = $1",
-        //userId
-        1
+        userId
     )
 
     return res.rows

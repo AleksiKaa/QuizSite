@@ -5,6 +5,7 @@ import * as questionController from "./controllers/questionController.js"
 import * as registerController from "./controllers/registerController.js"
 import * as loginController from "./controllers/loginController.js"
 import * as quizController from "./controllers/quizController.js"
+import * as statisticsController from "./controllers/statisticsController.js"
 
 const router = new Router();
 
@@ -17,6 +18,7 @@ router.get("/quiz", quizController.randomPage)
 router.get("/quiz/:id", quizController.showPage)
 router.get("/quiz/:id/correct", quizController.showCorrect)
 router.get("/quiz/:id/incorrect", quizController.showIncorrect)
+router.get("/statistics", statisticsController.getStatistics)
 router.post("/questions", questionsController.submitQuestion)
 router.post("/questions/:id/options", questionController.submitAnswerOption)
 router.post("/questions/:id/options/:optionId/delete", questionController.deleteAnswerOption)

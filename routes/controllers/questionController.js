@@ -21,7 +21,8 @@ const submitAnswerOption = async ({ request, render, response, params, state }) 
 
     let checkbox = formParams.get("is_correct")
 
-    if (checkbox != true) checkbox = false
+    if (checkbox === "on") checkbox = true
+    else checkbox = false
 
     const data = {
         question: await questionService.getQuestion(id),

@@ -27,13 +27,13 @@
 </form>
 
 <% if (it.answers && it.answers.length > 0) { %>
-<% it.answers.forEach((a) => { %>
 <ul>
+<% it.answers.forEach((a) => { %>
     <li>
         <%= a.option_text %> <%= a.is_correct %>
         <form action="/questions/<%= it.question.id %>/options/<%= a.id %>/delete" method="POST">
             <input type="submit" value="Delete option"/>
         </form>
-    </li>
-</ul>   
-<% } ) } %> 
+    </li>   
+<% } ) } %>
+</ul> 

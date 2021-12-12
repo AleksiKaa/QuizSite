@@ -1,3 +1,19 @@
 <% layout("./layouts/layout.eta") %>
 
 <h1>Hello world!</h1>
+
+<form method="GET">
+    <input type="submit" action="/" value="Home"/>
+    <input type="submit" action="/auth/login" value="Login"/>
+    <input type="submit" action="/auth/register" value="Register"/>
+</form>
+
+<button type="submit" onclick="alert('Hello world!')">Click Me!</button> <button type="button" onclick="alert('Hello world!')">Click Me!</button>
+
+<nav id="navbar">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/auth/login">Login</a></li>
+    <li><a href="/auth/register">Register</a></li>
+  </ul>
+</nav>

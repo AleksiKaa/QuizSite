@@ -1,8 +1,11 @@
+<% layout("./layouts/layout.eta") %>
+
 <h1>Statistics!</h1>
 
 <p>You have answered a total of <%= it.answerCount.count %> questions</p>
 <p>You have correctly answered <%= it.correctAnswers.count %> questions</p>
 <p>Your questions have been answered <%= it.answerAmount.count %> times</p>
+
 <% if (it.mostAnswers && it.mostAnswers.length > 0) { %>
 <p>The users with most answers are:</p>
 <ul>

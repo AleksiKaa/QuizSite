@@ -1,3 +1,5 @@
+<% layout("./layouts/layout.eta") %>
+
 <title><%= it.question.title %></title>
 
 <h1><%= it.question.question_text %></h1>

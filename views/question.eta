@@ -30,7 +30,7 @@
 <ul>
 <% it.answers.forEach((a) => { %>
     <li>
-        <%= a.option_text %> <%= a.is_correct %>
+        <%= a.option_text %> <b><%= a.is_correct %></b>
         <form action="/questions/<%= it.question.id %>/options/<%= a.id %>/delete" method="POST">
             <input type="submit" value="Delete option"/>
         </form>

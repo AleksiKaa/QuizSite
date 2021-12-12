@@ -1,4 +1,6 @@
 import * as questionService from "../../services/questionService.js"
+import { REDIRECT_BACK } from "https://deno.land/x/oak/mod.ts";
+
 import {
     minLength,
     required,
@@ -53,7 +55,6 @@ const renderQuestionPage = async ({ render, params, response, state }) => {
     render("question.eta", { question: await questionService.getQuestion(id), answers: await questionService.getAnswerOptions(id) })
 }
 
-//add functionality for question answers
 const deleteAnswerOption = async ({ response, params }) => {
 
     const questionId = params.id

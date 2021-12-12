@@ -14,9 +14,12 @@ const submitQuestion = async ({ request, render, response, state }) => {
     const body = request.body()
     const params = await body.value
 
+    const id = (await state.session.get("user")).id
+
     const data = {
         title: "",
         text: "",
+        questions: await questionsService.getQuestions(id),
         errors: null
     }
 
@@ -29,7 +32,7 @@ const submitQuestion = async ({ request, render, response, state }) => {
 
     if (!passes) {
         data.errors = errors
-        render("main.eta", data)
+        render("questions.eta", data)
     } else {
         await questionsService.addQuestion(data.title, data.text, userId)
         response.redirect("/questions")

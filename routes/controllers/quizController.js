@@ -1,12 +1,7 @@
 import * as quizService from "../../services/quizService.js"
 import * as questionService from "../../services/questionService.js"
-import * as authorizationController from "./authorizationController.js"
 
 const randomPage = async ({ render, state, response }) => {
-
-    const auth = await state.session.get("authenticated")
-
-    if (!auth) return response.redirect("/auth/login")
 
     const question = await quizService.getRandomQuestion()
 

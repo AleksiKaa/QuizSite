@@ -1,5 +1,7 @@
 <% layout("./layouts/layout.eta") %>
 
+<h1>Register!</h1>
+
 <% if (it.errors) { %>
 <ul>
     <% Object.keys(it.errors).forEach((attribute) => { %>
@@ -11,7 +13,7 @@
 <% } %>
 
 <form action="/auth/register" method="POST">
-    <input type="email" name="email" value="<%= it.email%>"/>
-    <input type="password" name="password"/>
+    <input type="email" name="email" placeholder="Email" value="<%= it.email%>"/>
+    <input type="password" name="password" placeholder="Password"/>
     <input type="submit" value="Register"/>
 </form>

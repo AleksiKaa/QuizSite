@@ -8,7 +8,7 @@ const getStatistics = async ({ state, render }) => {
         answerCount: await statisticsService.answerCount(id),
         correctAnswers: await statisticsService.correctAnswerCount(id),
         answerAmount: await statisticsService.answerAmount(id),
-        mostAnswers: await statisticsService.mostAnswers()
+        mostAnswers: (await statisticsService.mostAnswers()).slice(0, 5)
     }
 
     render("statistics.eta", data)

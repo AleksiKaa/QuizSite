@@ -11,5 +11,6 @@
 <form action="/auth/login" method="POST">
     <input type="email" name="email" placeholder="Email" value="<%= it.email %>"/>
     <input type="password" placeholder="Password" name="password"/>
+    <p style="font-size: 1.25rem">Don't have an account? Register <a href="/auth/register">here</a>.</p>
     <input type="submit" value="Log in"/>
 </form>

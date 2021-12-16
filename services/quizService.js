@@ -33,6 +33,15 @@ const getAnswerOption = async (id) => {
     return res.rows[0]
 }
 
+const getAnswerOptions = async (id) => {
+
+    const res = await executeQuery(
+        "SELECT * FROM question_answer_options WHERE question_id = $1",
+        id
+    )
+    return res.rows
+}
+
 const getCorrectOption = async (id) => {
 
     const res = await executeQuery(
@@ -42,4 +51,4 @@ const getCorrectOption = async (id) => {
     return res.rows
 }
 
-export { getRandomQuestion, addAnswer, getAnswerOption, getCorrectOption }
+export { getRandomQuestion, addAnswer, getAnswerOption, getAnswerOptions, getCorrectOption }

@@ -1,5 +1,7 @@
 <% layout("./layouts/layout.eta") %>
 
-<h1>Hello world!</h1>
+<h1>Quiz game!</h1>
 
-<p>lörsd</p>
+<p>This is a web application that allows the registered user to create and answer multiple-choice questions. In addition, the user can delete the questions and/or the answer options made by the user at will.</p>
+
+<img src="static/thinkingcat.jpg">

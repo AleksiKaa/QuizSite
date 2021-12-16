@@ -8,4 +8,6 @@
 <p>This question does not have correct answers at the moment</p>
 <% } %>
 
+<img src="../../static/sadcat.png">
+
 <p><a href="/quiz" >Next question</a></p>

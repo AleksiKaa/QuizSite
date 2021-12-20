@@ -40,6 +40,7 @@ const registerAccount = async ({ request, response, render }) => {
             data.errors["email"] = { text: "This email is already registered" }
             return render("register.eta", data)
         }
+        
         const hash = await bcrypt.hash(data.password)
         await registerService.register(data.email, hash)
         response.redirect("/auth/login")

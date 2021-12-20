@@ -1,5 +1,4 @@
 import * as questionService from "../../services/questionService.js"
-import { REDIRECT_BACK } from "https://deno.land/x/oak/mod.ts";
 
 import {
     minLength,
@@ -16,10 +15,10 @@ const submitAnswerOption = async ({ request, render, response, params, state }) 
     const formParams = await body.value
 
     const id = params.id
-    const userIdquestions = (await questionService.getQuestion(id)).user_id
+    const userIdQuestions = (await questionService.getQuestion(id)).user_id
     const userId = (await state.session.get("user")).id
 
-    if (userId != userIdquestions) return response.status = 401
+    if (userId != userIdQuestions) return response.status = 401
 
     let checkbox = formParams.get("is_correct")
 
@@ -47,10 +46,10 @@ const submitAnswerOption = async ({ request, render, response, params, state }) 
 const renderQuestionPage = async ({ render, params, response, state }) => {
 
     const id = params.id
-    const userIdquestions = (await questionService.getQuestion(id)).user_id
+    const userIdQuestions = (await questionService.getQuestion(id)).user_id
     const userId = (await state.session.get("user")).id
 
-    if (userId != userIdquestions) return response.status = 401
+    if (userId != userIdQuestions) return response.status = 401
 
     render("question.eta", { question: await questionService.getQuestion(id), answers: await questionService.getAnswerOptions(id) })
 }

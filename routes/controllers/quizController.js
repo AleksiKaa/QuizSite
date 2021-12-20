@@ -5,8 +5,7 @@ const randomPage = async ({ render, state, response }) => {
 
     const question = await quizService.getRandomQuestion()
 
-    //muuta johonki viisaaseen
-    if (!question) return response.body = "no questions yet"
+    if (!question) return response.body = "No questions yet"
 
     response.redirect(`/quiz/${question.id}`)
 }

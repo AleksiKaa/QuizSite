@@ -51,4 +51,4 @@ const getCorrectOption = async (id) => {
     return res.rows
 }
 
-export { getRandomQuestion, addAnswer, getAnswerOption, getAnswerOptions, getCorrectOption }
+export { getRandomInt, getRandomQuestion, addAnswer, getAnswerOption, getAnswerOptions, getCorrectOption }

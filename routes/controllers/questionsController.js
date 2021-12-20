@@ -14,8 +14,6 @@ const submitQuestion = async ({ request, render, response, state }) => {
     const body = request.body()
     const params = await body.value
 
-    const id = (await state.session.get("user")).id
-
     const data = {
         title: "",
         text: "",

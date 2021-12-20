@@ -32,10 +32,10 @@ const answerQuestion = async ({ request, response }) => {
 
     for (let i = 0; i < correctAnswers.length; i++) {
         const e = correctAnswers[i]
-        if (Number(e.id) === Number(content.optionId)) return response.body = { correct: true }
+        if (Number(e.id) === Number(content.optionId)) return response.body = JSON.parse('{ "correct": "true" }')
     }
 
-    response.body = { correct: false }
+    response.body = JSON.parse('{ "correct": "false" }')
 
 }
 

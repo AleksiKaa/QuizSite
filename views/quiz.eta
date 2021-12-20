@@ -1,6 +1,6 @@
 <% layout("./layouts/layout.eta") %>
 
-<title><%= it.question.title %></title>
+<title style="text-align: center; padding: 10px"><%= it.question.title %></title>
 
 <h1><%= it.question.question_text %></h1>
 

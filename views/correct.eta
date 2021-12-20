@@ -1,6 +1,6 @@
 <% layout("./layouts/layout.eta") %>
 
-<h1>Correct!</h1>
+<h1 style="text-align: center; padding: 10px">Correct!</h1>
 
 <img src="../../static/partycat.jpg">
 

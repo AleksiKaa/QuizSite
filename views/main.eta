@@ -1,7 +1,48 @@
 <% layout("./layouts/layout.eta") %>
 
-<h1>Quiz game!</h1>
+
+<style>
+    #cat {
+        float: left;
+        margin-right: 10%
+    }
+
+    #links {
+        border-radius: 25px;
+        float: left;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        width: 500px;
+        background-color: #9b4dca;
+    }
+
+    #links li {
+        text-align: center;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        padding: 8px 16px;
+        text-decoration: none;
+    }
+
+    #links li a:hover {
+        background-color: #8A1CCC;
+        color: black;
+        border-radius: 25px;
+    }
+
+</style>
+
+<h1 style="text-align: center; padding: 10px">Quiz game!</h1>
 
 <p>This is a web application that allows the registered user to create and answer multiple-choice questions. In addition, the user can delete the questions and/or the answer options made by the user at will.</p>
 
-<img src="static/thinkingcat.jpg">
+<img id="cat" src="static/thinkingcat.jpg">
+
+<ul id="links">
+    <li><a href="/auth/login">Login</a></li>
+    <li><a href="/auth/register">Register</a></li>
+</ul>

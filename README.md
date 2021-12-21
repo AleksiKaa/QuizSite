@@ -1,6 +1,9 @@
 This is a web application that allows a registered user to create multiple-choice questions. In addition,
 any registered user can answer the questions. Questions, answer options, and each answer are stored in a database.
 The app also tracks statistics that can be accessed at /statistics for each registered user.
+The app is available at https://deno-quiz.herokuapp.com/
+The app can also be run locally with the shell command deno run --allow-all --unstable run-locally.js
+Do note that running locally requires you to have a database with the needed tables and inserting your database credentials to database/database.js
 
 Create table statements needed for the application, enter these commands to your own database:
 
@@ -34,8 +37,6 @@ CREATE TABLE question_answers (
 
 CREATE UNIQUE INDEX ON users((lower(email)));
 
-Shell command needed to run the application locally: deno run --allow-all --unstable run-locally.js
-
 The tests require a working database with the mentioned tables and database credentials
 entered in file database/database.js
 For some reason, on my computer, the first test in a file will fail no matter what.
@@ -43,5 +44,3 @@ That is why there are duplicate tests in the files.
 Feel free to ignore the duplicate tests.
 Specifics for passing the tests are given in the test files.
 Tests can be run with the shell command deno test --allow-all --unstable
-
-link to heroku: ???

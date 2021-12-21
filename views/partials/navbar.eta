@@ -23,6 +23,11 @@
   background-color: #8A1CCC;
   color: black;
 }
+
+#logout {
+  float: right;
+}
+
 </style>
 
 <ul id ="navbar">
@@ -30,4 +35,5 @@
   <li class="link"><a href="/questions">Questions</a></li>
   <li class="link"><a href="/quiz">Quiz</a></li>
   <li class="link"><a href="/statistics">Statistics</a></li>
+  <li class="link" style="float: right"><a href="/auth/logout">Log out</a></li>
 </ul>

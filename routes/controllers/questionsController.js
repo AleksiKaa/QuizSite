@@ -14,14 +14,14 @@ const submitQuestion = async ({ request, render, response, state }) => {
     const body = request.body()
     const params = await body.value
 
+    const userId = (await state.session.get("user")).id
+
     const data = {
         title: "",
         text: "",
-        questions: await questionsService.getQuestions(id),
+        questions: await questionsService.getQuestions(userId),
         errors: null
     }
-
-    const userId = (await state.session.get("user")).id
 
     data.title = params.get("title")
     data.text = params.get("question_text")

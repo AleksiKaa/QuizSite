@@ -18,26 +18,26 @@ app.use(renderMiddleware)
 app.use(router.routes())
 
 //ignore the duplicate test
-//tests require a question with id = 1 and answer options with ids 6 and 7 and they have to have the values true and false
+//tests require a question with id = 1 and answer options with ids 1 and 2 and they have to have the values true and false
 
 Deno.test("POST request to /api/questions/answer with correct answer option should return JSON {correct:false}", async () => {
     const testClient = await superoak(app)
     await testClient.post("/api/questions/answer")
-    .send(JSON.parse('{"questionId": "1", "optionId":"7"}'))
+    .send(JSON.parse('{"questionId": "1", "optionId":"2"}'))
     .expect({correct: "false"})
 })
 
 Deno.test("POST request to /api/questions/answer with correct answer option should return JSON {correct:false}", async () => {
     const testClient = await superoak(app)
     await testClient.post("/api/questions/answer")
-    .send(JSON.parse('{"questionId": "1", "optionId":"7"}'))
+    .send(JSON.parse('{"questionId": "1", "optionId":"2"}'))
     .expect({correct: "false"})
 })
 
 Deno.test("POST request to /api/questions/answer with correct answer option should return JSON {correct:true}", async () => {
     const testClient = await superoak(app)
     await testClient.post("/api/questions/answer")
-    .send(JSON.parse('{"questionId": "1", "optionId":"6"}'))
+    .send(JSON.parse('{"questionId": "1", "optionId":"1"}'))
     .expect({correct: "true"})
 })
 

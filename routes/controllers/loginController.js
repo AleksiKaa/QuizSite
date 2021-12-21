@@ -5,8 +5,6 @@ const showPage = ({ render }) => {
     render("login.eta", { email: "" })
 }
 
-//test@test.fi  password
-//aha@ookoo.fi  password
 const authenticate = async ({ request, response, render, state }) => {
     const body = request.body()
     const params = await body.value
@@ -42,4 +40,10 @@ const authenticate = async ({ request, response, render, state }) => {
     response.redirect("/questions")
 }
 
-export { showPage, authenticate }
+const logout = async ({ state, response }) => {
+    await state.session.set("authenticated", false)
+    await state.session.set("user", null)
+    response.redirect("/auth/login")
+}
+
+export { showPage, authenticate, logout }

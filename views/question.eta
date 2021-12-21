@@ -20,7 +20,7 @@
 <% } %>
 
 <form action="/questions/<%= it.question.id %>/options" method="POST">
-    <input type="text" name="option_text"/>
+    <input type="text" placeholder="Option text" name="option_text"/>
     <input type="checkbox" name="is_correct"/>
     <label for="is_correct">Is correct?</label>
     <input type="submit" value="Submit"/>
